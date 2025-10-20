@@ -91,3 +91,33 @@ Voici le code complet de notre client UDP « simpleUDPclient.py » :
     msgServer = client.recv(1024).decode('utf-8')
     print("Message du serveur : ", msgServer)
     client.close()
+    
+## Echo UDP (latences et pertes)
+### Serveur UDP (echo)
+Enregistre udp_server.py :
+    # udp_server.py
+    import socket
+
+    HOST = "0.0.0.0"
+    PORT = 9999
+    BUF  = 4096
+
+    def main():
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.bind((HOST, PORT))
+        print(f"[UDP] Echo server on {HOST}:{PORT} (Ctrl+C pour quitter)")
+        try:
+            while True:
+                data, addr = sock.recvfrom(BUF)
+                # Echo immédiat
+                sock.sendto(data, addr)
+        except KeyboardInterrupt:
+        print("\n[UDP] Stop")
+        finally:
+            sock.close()
+
+    if __name__ == "__main__":
+        main()
+        
+        
+
