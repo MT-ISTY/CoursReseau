@@ -20,7 +20,7 @@ Programmation réseau sur les sockets :
 En Python, les fonctions associées aux sockets sont fournies dans le module socket. Vous
 devez donc, en premier lieu, importer ce module.
 Votre script Python devra commencer par :
-'''
-#!/usr/bin/env python3
-import socket
-'''
+
+    #!/usr/bin/env python3
+    import socket
+
