@@ -47,3 +47,13 @@ Voici un exemple de programme serveur « simpleUDPServeur.py » qui ouvre un soc
         serveur.sendto(b"i am the server", address)
     serveur.close()
 
+Nous avons maintenant un mini serveur qui accepte les connexions UDP sur le PORT 3000 et afficher dans la console l’IP du client qui s’y connecte.
+
+Tester : Enregistrez ce fichier dans votre VM Linux et exécutez le dans un terminal via la commande :
+    
+    ~$ python3 ./ simpleUDPServeur.py
+    
+Le serveur affiche : « Serveur UDP en écoute sur 3000 » et attend des messages d’un client (boucle infinie : while True)
+Pour tester, vous pouvez utiliser la commande linux « netcat -u localhost 3000 »
+Ensuite tapez un mot et faites « Entrée » le serveur affichera votre chaîne de caractères et l’IP de votre poste client et répondra sur la console du client « i am the server »
+
