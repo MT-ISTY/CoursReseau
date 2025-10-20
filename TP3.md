@@ -166,7 +166,11 @@ Exécute ce programme....
 
 ***À mesurer/observer :***
 
-1. RTT min/moy/max, taux de pertes (essayez de changer PAYLOAD et COUNT).
+1. RTT* min/moy/max, taux de pertes (essayez de changer PAYLOAD et COUNT).
+_* Le RTT (Round Trip Time) est le temps total nécessaire pour qu’un paquet fasse l’aller-retour entre l’émetteur et le destinataire._
+_Autrement dit :_
+_RTT = temps d’envoi (aller) + temps de réponse (retour)_
+_C’est une mesure du délai de communication entre deux machines._
 
 2. Couper temporairement le serveur pour provoquer des pertes : comportement de l’appli ?
 
