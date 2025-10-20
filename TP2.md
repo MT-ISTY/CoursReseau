@@ -1,55 +1,56 @@
-🔹 Niveau 1 – Découverte et manipulation de base (déjà fait sous Linux)
+#🔹 Niveau 1 – Découverte et manipulation de base avec Windows (déjà fait sous Linux)
 
-Adresse IP et Ping
+## Adresse IP et Ping
 
-Trouver son adresse IP avec l'invite de commande (cmd) et ipconfig /all
+1. Trouver son adresse IP avec l'invite de commande (cmd) et ipconfig /all
 
-Donner l'adresse IP sur derveur DHCP
+2. Donner l'adresse IP sur derveur DHCP
 
-Faire un ping entre deux machines.
+3. Faire un ping entre deux machines.
 
-👉 Constater ce qui se passe quand on change de masque / mauvaise IP.
+4. 👉 Constater ce qui se passe quand on change de masque / mauvaise IP.
 
-Faire un ping 1000 fois entre deux machines.
+5. Faire un ping 1000 fois entre deux machines.
 
 
-Wireshark – capture de trames
+## Wireshark – capture de trames
 
-Lancer Wireshark, capturer un ping.
+1. Lancer Wireshark, capturer un ping.
 
-Identifier les adresses IP et MAC dans la capture.
+2. Identifier les adresses IP et MAC dans la capture.
 
-Comparer "requête" et "réponse".
-👉 Ça donne un côté espion amusant.
+3. Comparer "requête" et "réponse".
+	👉 Ça donne un côté espion amusant.
 
-Table ARP
+## Table ARP
 
-Lancer arp -a après un ping.
+1. Lancer arp -a après un ping.
 
-Expliquer simplement le lien IP ↔ MAC.
+2. Expliquer simplement le lien IP ↔ MAC.
 
-Faire effacer la table ARP et voir la différence.
+3. Faire effacer la table ARP et voir la différence.
 
-🔹 Niveau 2 – Mise en place de services simples
+#🔹 Niveau 2 – Mise en place de services simples
 
-Serveur web local
+## Serveur web local
 
-Lancer un petit serveur web Python : python3 -m http.server 8080
+1. Lancer un petit serveur web Python : python3 -m http.server 8080
 
-Accéder depuis un autre PC via http://IP:8080.
-👉 vous voyez la notion de client ↔ serveur.
+2. Accéder depuis un autre PC via '''http://IP:8080'''.
 
-Partage de fichiers (netcat = nc)
+	👉 vous voyez la notion de client ↔ serveur.
 
-Envoyer un fichier avec nc -l 1234 > recu.txt.
+## Partage de fichiers (netcat = nc)
 
-Recevoir avec nc IP 1234 < fichier.txt.
-👉 Ils voient qu’on peut transférer sans clé USB.
+1. Envoyer un fichier avec nc -l 1234 > recu.txt.
 
-DNS simplifié
+2. Recevoir avec '''nc IP 1234 < fichier.txt'''.
+	👉 vous voyez comment transférer sans clé USB.
 
-Faire nslookup www.google.com.
+## DNS simplifié
 
-Changer le DNS dans la config réseau (par ex. passer sur 1.1.1.1 ou 8.8.8.8).
+1. Faire nslookup www.google.com.
 
-Observer la différence si on met un DNS faux
+2. Changer le DNS dans la config réseau (par ex. passer sur 1.1.1.1 ou 8.8.8.8).
+
+3. Observer la différence si on met un DNS faux
