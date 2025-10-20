@@ -30,7 +30,9 @@ La socket à ouvrir pour une communication UDP est de type « SOCK_DGRAM ».
 
     serveur = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-Voici un exemple de programme serveur « simpleUDPServeur.py » qui ouvre un socket UDP et l’associe au port de votre choix (ici 3000) : 
+## Programmation du serveur UDP
+
+Voici un exemple de programme **serveur** « simpleUDPServeur.py » qui ouvre un socket UDP et l’associe au port de votre choix (ici 3000) : 
 
     #!/usr/bin/env python3
     import socket
@@ -51,9 +53,40 @@ Nous avons maintenant un mini serveur qui accepte les connexions UDP sur le PORT
 
 Tester : Enregistrez ce fichier dans votre VM Linux et exécutez le dans un terminal via la commande :
     
-    ~$ python3 ./ simpleUDPServeur.py
+    ~$ python3 ./simpleUDPServeur.py
     
 Le serveur affiche : « Serveur UDP en écoute sur 3000 » et attend des messages d’un client (boucle infinie : while True)
 Pour tester, vous pouvez utiliser la commande linux « netcat -u localhost 3000 »
 Ensuite tapez un mot et faites « Entrée » le serveur affichera votre chaîne de caractères et l’IP de votre poste client et répondra sur la console du client « i am the server »
 
+## Programmation du client UDP
+Pour envoyer des messages au serveur UDP, nous devons définir un « tuple » que l’on appelle **addrPort** et qui contient l’IP du serveur et le Port réseau sur lequel il écoute.
+
+    addrPort = ("127.0.0.1", 3000)
+    
+Puis, nous créons un « socket » client de type UDP, comme pour le serveur, avec le type SOCK_DGRAM
+
+    client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    
+Enfin, il suffit d’envoyer des messages au serveur, via notre variable « addrPort » et la fonction « sendto(…) » sans avoir à réaliser une connexion, puisque UDP est en mode déconnecté :
+
+    client.sendto(b"Hello from client", addrPort)
+    
+On peut également attendre une réponse du serveur via la fonction « recv(1024) » que l’on décode en « utf-8 », car les données transitent au format « bytes » sur le socket, puis on affiche le msg du serveur dans la console :
+
+    msgServer = client.recv(1024).decode('utf-8')
+    print("Message du serveur : ", msgServer)
+    
+Pour terminer, on ferme le « socket » client que l’on a ouvert au début :
+
+    client.close()
+    
+Voici le code complet de notre client UDP « simpleUDPclient.py » :
+    #!/usr/bin/env python3
+    import socket
+    addrPort = ("127.0.0.1", 3000)
+    client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    client.sendto(b"Hello from client", addrPort)
+    msgServer = client.recv(1024).decode('utf-8')
+    print("Message du serveur : ", msgServer)
+    client.close()
