@@ -95,6 +95,7 @@ Voici le code complet de notre client UDP « simpleUDPclient.py » :
 ## Echo UDP (latences et pertes)
 ### Serveur UDP (echo)
 Enregistre udp_server.py :
+
     # udp_server.py
     import socket
 
@@ -112,12 +113,60 @@ Enregistre udp_server.py :
                 # Echo immédiat
                 sock.sendto(data, addr)
         except KeyboardInterrupt:
-        print("\n[UDP] Stop")
+            print("\n[UDP] Stop")
         finally:
             sock.close()
 
     if __name__ == "__main__":
         main()
         
-        
+Exécute ce programme....  
+
+### Serveur UDP (echo)
+Enregistre udp_client.py :
+
+    # udp_client.py
+    import socket, time, statistics, os
+
+    SERVER = ("127.0.0.1", 9999)  # changer IP si serveur distant
+    COUNT  = 50
+    TIMEOUT = 1.0
+    PAYLOAD = b"x" * 32  # taille applicative (modifie pour tester)
+
+    def main():
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.settimeout(TIMEOUT)
+        rtts = []
+        lost = 0
+
+        for seq in range(1, COUNT+1):
+            t0 = time.perf_counter()
+            msg = seq.to_bytes(4, "big") + t0.hex().encode() + b"|" + PAYLOAD
+            try:
+                sock.sendto(msg, SERVER)
+                data, _ = sock.recvfrom(4096)
+                t1 = time.perf_counter()
+                rtt_ms = (t1 - t0) * 1000
+                rtts.append(rtt_ms)
+                print(f"#{seq:03d} RTT = {rtt_ms:.2f} ms, len={len(data)}")
+            except socket.timeout:
+                lost += 1
+                print(f"#{seq:03d} *** PERDU ***")
+
+        sock.close()
+        if rtts:
+            print("\n--- Statistiques UDP ---")
+            print(f"Envoyés: {COUNT}, Reçus: {COUNT-lost}, Pertes: {lost} ({100*lost/COUNT:.1f}%)")
+            print(f"RTT min/avg/max = {min(rtts):.2f}/{statistics.mean(rtts):.2f}/{max(rtts):.2f} ms")
+
+    if __name__ == "__main__":
+        main()
+
+Exécute ce programme....  
+
+***À mesurer/observer :***
+
+1. RTT min/moy/max, taux de pertes (essayez de changer PAYLOAD et COUNT).
+
+2. Couper temporairement le serveur pour provoquer des pertes : comportement de l’appli ?
 
