@@ -82,6 +82,7 @@ Pour terminer, on ferme le « socket » client que l’on a ouvert au début :
     client.close()
     
 Voici le code complet de notre client UDP « simpleUDPclient.py » :
+
     #!/usr/bin/env python3
     import socket
     addrPort = ("127.0.0.1", 3000)
