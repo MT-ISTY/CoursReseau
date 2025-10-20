@@ -27,8 +27,11 @@ Votre script Python devra commencer par :
 # Programmation client-serveur
 Nous avons vu que le protocole UDP fonctionne, en mode non connecté :
 La socket à ouvrir pour une communication UDP est de type « SOCK_DGRAM ».
+
     serveur = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
 Voici un exemple de programme serveur « simpleUDPServeur.py » qui ouvre un socket UDP et l’associe au port de votre choix (ici 3000) : 
+
     #!/usr/bin/env python3
     import socket
     serveur = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
