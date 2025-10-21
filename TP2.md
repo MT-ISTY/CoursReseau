@@ -34,6 +34,7 @@
 2. Expliquer simplement le lien IP ↔ MAC.
 
 3. Faire effacer la table ARP et voir la différence.
+   Note: il faut être administrateur du poste....
 
 #🔹 Niveau 2 – Mise en place de services simples
 
