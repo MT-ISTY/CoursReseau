@@ -13,7 +13,7 @@
 5. Faire un ping 1000 fois entre deux machines.
 
 
-## Wireshark – capture de trames
+## Wireshark – capture de trames - Ne pas faire -> au prochain semestre
 
 1. Lancer Wireshark, capturer un ping.
 
