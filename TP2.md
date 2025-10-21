@@ -4,7 +4,7 @@
 
 1. Trouver son adresse IP avec l'invite de commande (cmd) et ipconfig /all
 
-2. Donner l'adresse IP sur derveur DHCP
+2. Donner l'adresse IP sur serveur DHCP
 
 3. Faire un ping entre deux machines.
 
