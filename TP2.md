@@ -1,4 +1,4 @@
-** à rendre pour le dimanche 16 novembre 2025 à minuit**
+** à rendre pour le dimanche 16 novembre 2025 à minuit (en pdf)**
 
 
 #🔹 Niveau 1 – Découverte et manipulation de base avec Windows (déjà fait sous Linux)
