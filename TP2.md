@@ -9,7 +9,7 @@
 
 1. Trouver son adresse IP avec l'invite de commande (cmd) et ipconfig /all
 
-2. Donner l'adresse IP sur serveur DHCP
+2. Donner l'adresse IP sur serveur DHCP (en IPv4 et en IPv6 et vérifier)
 
 3. Faire un ping entre deux machines.
 
