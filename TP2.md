@@ -7,7 +7,7 @@
 
 ## Adresse IP et Ping
 
-1. Trouver son adresse IP avec l'invite de commande (cmd) et ipconfig /all
+1. Trouver son adresse IP (en IPv4 et en IPv6 et vérifier) avec l'invite de commande (cmd) et ipconfig /all
 
 2. Donner l'adresse IP sur serveur DHCP (en IPv4 et en IPv6 et vérifier)
 
