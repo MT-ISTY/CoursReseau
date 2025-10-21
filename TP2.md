@@ -1,4 +1,9 @@
+** à rendre pour le dimanche 16 novembre 2025 à minuit**
+
+
 #🔹 Niveau 1 – Découverte et manipulation de base avec Windows (déjà fait sous Linux)
+
+
 
 ## Adresse IP et Ping
 
